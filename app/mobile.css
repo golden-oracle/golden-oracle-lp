@@ -1,0 +1,117 @@
+/* モバイル向けのスタイル調整 */
+
+/* モバイル向けのカウントダウンタイマー */
+.offer-countdown-mobile {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin: 10px 0;
+}
+
+.countdown-item-mobile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.countdown-number-mobile {
+  background: rgba(15, 5, 36, 0.8);
+  border: 1px solid rgba(249, 212, 35, 0.5);
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #f9d423;
+  min-width: 40px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(249, 212, 35, 0.3);
+}
+
+.countdown-label-mobile {
+  margin-top: 3px;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* モバイル向けのVIPバッジ */
+.vip-badge-mobile {
+  position: relative;
+  display: inline-block;
+  padding: 0.3rem 1rem;
+  background: linear-gradient(45deg, #976f00, #f9d423);
+  color: #000;
+  font-weight: bold;
+  font-size: 0.75rem;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(249, 212, 35, 0.5);
+  overflow: hidden;
+}
+
+.vip-badge-mobile::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(transparent, rgba(255, 255, 255, 0.3), transparent);
+  transform: rotate(45deg);
+  animation: vip-shine 3s linear infinite;
+}
+
+/* モバイル向けの特別オファーバッジ */
+.special-offer-badge-mobile {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(45deg, #976f00, #f9d423);
+  color: #000;
+  font-weight: bold;
+  font-size: 0.7rem;
+  padding: 3px 10px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(249, 212, 35, 0.5);
+  z-index: 10;
+  white-space: nowrap;
+}
+
+/* モバイル向けの限定オファーリボン */
+.limited-ribbon-mobile {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.limited-ribbon-mobile::before {
+  content: "期間限定";
+  position: absolute;
+  display: block;
+  width: 150px;
+  padding: 8px 0;
+  background-color: #f9d423;
+  color: #000;
+  font-weight: bold;
+  font-size: 0.7rem;
+  text-align: center;
+  transform: rotate(45deg) translateY(-15px);
+  top: 25px;
+  right: -25px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* モバイル向けのボタン効果 */
+@media (max-width: 640px) {
+  .mystic-button:hover {
+    transform: none;
+  }
+
+  .mystic-hover:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}

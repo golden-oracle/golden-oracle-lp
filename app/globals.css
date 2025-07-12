@@ -1,0 +1,803 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 263 70% 50%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 43 96% 56%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 263 70% 94%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 263 70% 50%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 263 70% 50%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 43 96% 56%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 263 70% 94%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 263 70% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* 神秘的なテキストエフェクト - 豪華版 */
+.mystic-text {
+  background: linear-gradient(to right, #976f00, #f9d423, #fffad1, #f9d423, #976f00);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 25px rgba(249, 212, 35, 0.7);
+  animation: shimmer-text 4s infinite;
+  background-size: 200% auto;
+}
+
+@keyframes shimmer-text {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* 宇宙背景 - 豪華版 */
+.cosmic-bg {
+  background: linear-gradient(to bottom, #0a0320, #1a0c46, #2a1066, #1a0c46, #0a0320);
+  position: relative;
+}
+
+.cosmic-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(circle at 20% 30%, rgba(138, 43, 226, 0.4) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(75, 0, 130, 0.4) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(186, 104, 200, 0.2) 0%, transparent 60%);
+  z-index: 0;
+  animation: cosmic-pulse 15s infinite alternate;
+}
+
+@keyframes cosmic-pulse {
+  0% {
+    opacity: 0.7;
+    background-position: 0% 0%;
+  }
+  50% {
+    opacity: 1;
+    background-position: 10% 10%;
+  }
+  100% {
+    opacity: 0.7;
+    background-position: 0% 0%;
+  }
+}
+
+/* 宇宙カード - 豪華版 */
+.cosmic-card {
+  background: rgba(15, 5, 36, 0.8);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(138, 43, 226, 0.4);
+  box-shadow: 0 0 30px rgba(138, 43, 226, 0.3), inset 0 0 20px rgba(138, 43, 226, 0.1);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+.cosmic-card:hover {
+  box-shadow: 0 0 40px rgba(138, 43, 226, 0.5), inset 0 0 30px rgba(138, 43, 226, 0.2);
+  transform: translateY(-5px);
+}
+
+.cosmic-card::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  transform: rotate(30deg);
+}
+
+.cosmic-card:hover::after {
+  opacity: 1;
+  animation: rotate-light 10s linear infinite;
+}
+
+/* 神秘的な光の効果 - 豪華版 */
+.mystic-glow {
+  box-shadow: 0 0 25px rgba(138, 43, 226, 0.7), 0 0 40px rgba(249, 212, 35, 0.3);
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+/* 金のグラデーション - 豪華版 */
+.gold-gradient {
+  background: linear-gradient(to right, #976f00, #f9d423, #fff3a3, #f9d423, #976f00);
+  background-size: 200% auto;
+  animation: shimmer-gold 3s linear infinite;
+}
+
+@keyframes shimmer-gold {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* 紫のグラデーション - 豪華版 */
+.purple-gradient {
+  background: linear-gradient(to right, #4a0080, #8a2be2, #b469ff, #8a2be2, #4a0080);
+  background-size: 200% auto;
+  animation: shimmer-purple 4s linear infinite;
+}
+
+@keyframes shimmer-purple {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* 宇宙の波動効果 - 豪華版 */
+.cosmic-wave {
+  position: relative;
+}
+
+.cosmic-wave::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-radial-gradient(
+    circle at center,
+    rgba(138, 43, 226, 0.15) 0%,
+    transparent 10%,
+    rgba(138, 43, 226, 0.1) 20%
+  );
+  opacity: 0.5;
+  animation: pulse-wave 8s ease-in-out infinite;
+}
+
+@keyframes pulse-wave {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.3;
+  }
+}
+
+/* 浮遊アニメーション - 豪華版 */
+@keyframes float {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(10px) rotate(-1deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+.floating {
+  animation: float 8s ease-in-out infinite;
+}
+
+/* 輝くパルス効果 - 豪華版 */
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 10px rgba(138, 43, 226, 0.5), 0 0 20px rgba(249, 212, 35, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(138, 43, 226, 0.8), 0 0 50px rgba(249, 212, 35, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(138, 43, 226, 0.5), 0 0 20px rgba(249, 212, 35, 0.2);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 4s infinite;
+}
+
+/* キラキラ効果 - 豪華版 */
+@keyframes sparkle {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.sparkle-container {
+  position: relative;
+}
+
+.sparkle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle at center, #ffd700 0%, transparent 70%);
+  background-repeat: no-repeat;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* 光の回転効果 - 豪華版 */
+@keyframes rotate-light {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.rotating-light {
+  position: relative;
+  overflow: hidden;
+}
+
+.rotating-light::after {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background: conic-gradient(transparent, rgba(255, 215, 0, 0.1), transparent, rgba(138, 43, 226, 0.1), transparent);
+  animation: rotate-light 15s linear infinite;
+  pointer-events: none;
+}
+
+/* 神秘的なボーダー効果 - 豪華版 */
+.mystic-border {
+  position: relative;
+  border-radius: inherit;
+}
+
+.mystic-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(
+    45deg,
+    #976f00,
+    #f9d423,
+    #fff3a3,
+    #f9d423,
+    #976f00,
+    #4a0080,
+    #8a2be2,
+    #b469ff,
+    #8a2be2,
+    #4a0080
+  );
+  background-size: 400% 400%;
+  animation: gradient-border 8s linear infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+@keyframes gradient-border {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 400% 50%;
+  }
+}
+
+/* 星空効果 - 豪華版 */
+.starry-bg {
+  position: relative;
+}
+
+.starry-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(1px 1px at 10% 10%, rgba(255, 255, 255, 0.9) 50%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 20% 20%, rgba(255, 255, 255, 0.8) 50%, transparent 100%),
+    radial-gradient(1px 1px at 30% 30%, rgba(255, 255, 255, 0.7) 50%, transparent 100%),
+    radial-gradient(2px 2px at 40% 40%, rgba(255, 255, 255, 0.6) 50%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 50% 50%, rgba(255, 255, 255, 0.5) 50%, transparent 100%),
+    radial-gradient(1px 1px at 60% 60%, rgba(255, 255, 255, 0.4) 50%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 70% 70%, rgba(255, 255, 255, 0.3) 50%, transparent 100%),
+    radial-gradient(2px 2px at 80% 80%, rgba(255, 255, 255, 0.2) 50%, transparent 100%),
+    radial-gradient(2.5px 2.5px at 90% 90%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
+  background-size: 100% 100%;
+  z-index: 0;
+  opacity: 0.5;
+}
+
+/* 神秘的なボタン効果 - 豪華版 */
+.mystic-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.mystic-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: all 0.4s ease;
+}
+
+.mystic-button:hover::before {
+  left: 100%;
+}
+
+/* 神秘的なフォーム効果 - 豪華版 */
+.mystic-input {
+  transition: all 0.3s ease;
+  background: rgba(15, 5, 36, 0.6);
+  border: 1px solid rgba(138, 43, 226, 0.3);
+}
+
+.mystic-input:focus {
+  background: rgba(15, 5, 36, 0.8);
+  border-color: rgba(249, 212, 35, 0.6);
+  box-shadow: 0 0 15px rgba(249, 212, 35, 0.3);
+}
+
+/* 神秘的なスクロール効果 - 豪華版 */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease;
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 魔法の粒子効果 - 豪華版 */
+@keyframes magic-particles {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.magic-particles-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.magic-particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(249, 212, 35, 0.8), rgba(249, 212, 35, 0));
+  pointer-events: none;
+  animation: magic-particles 4s ease-in-out infinite;
+}
+
+/* 神秘的なホバーエフェクト - 豪華版 */
+.mystic-hover {
+  transition: all 0.4s ease;
+}
+
+.mystic-hover:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 10px 30px rgba(138, 43, 226, 0.3), 0 0 20px rgba(249, 212, 35, 0.2);
+}
+
+/* 神秘的なセパレーター - 豪華版 */
+.mystic-separator {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(249, 212, 35, 0.5), transparent);
+  position: relative;
+}
+
+.mystic-separator::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  background: rgba(249, 212, 35, 0.8);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(249, 212, 35, 0.5);
+}
+
+/* 流れ星アニメーション - 新規追加 */
+@keyframes shooting-star {
+  0% {
+    transform: translateX(-100px) translateY(100px) rotate(45deg);
+    opacity: 0;
+  }
+  10%,
+  15% {
+    opacity: 1;
+  }
+  30% {
+    transform: translateX(calc(100vw + 100px)) translateY(-100px) rotate(45deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(calc(100vw + 100px)) translateY(-100px) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+.shooting-star {
+  position: absolute;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #fff, #fff);
+  border-radius: 100px;
+  filter: drop-shadow(0 0 6px #fff);
+  z-index: 1;
+}
+
+/* VIP効果 - 新規追加 */
+.vip-badge {
+  position: relative;
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  background: linear-gradient(45deg, #976f00, #f9d423);
+  color: #000;
+  font-weight: bold;
+  border-radius: 4px;
+  box-shadow: 0 0 15px rgba(249, 212, 35, 0.5);
+  overflow: hidden;
+}
+
+.vip-badge::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(transparent, rgba(255, 255, 255, 0.3), transparent);
+  transform: rotate(45deg);
+  animation: vip-shine 3s linear infinite;
+}
+
+@keyframes vip-shine {
+  0% {
+    transform: rotate(45deg) translateX(-100%);
+  }
+  100% {
+    transform: rotate(45deg) translateX(100%);
+  }
+}
+
+/* 限定オファーリボン - 新規追加 */
+.limited-ribbon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.limited-ribbon::before {
+  content: "期間限定";
+  position: absolute;
+  display: block;
+  width: 225px;
+  padding: 15px 0;
+  background-color: #f9d423;
+  color: #000;
+  font-weight: bold;
+  text-align: center;
+  transform: rotate(45deg) translateY(-20px);
+  top: 35px;
+  right: -25px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.limited-ribbon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 100%;
+  z-index: -1;
+  border-left: 3px solid #976f00;
+  border-right: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid #976f00;
+}
+
+/* 豪華な背景アニメーション - 新規追加 */
+.luxury-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.luxury-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 30%, rgba(249, 212, 35, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(138, 43, 226, 0.15) 0%, transparent 50%);
+  animation: luxury-pulse 10s infinite alternate;
+}
+
+@keyframes luxury-pulse {
+  0% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+/* 特別オファーカウントダウン - 新規追加 */
+.offer-countdown {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.countdown-number {
+  background: rgba(15, 5, 36, 0.8);
+  border: 1px solid rgba(249, 212, 35, 0.5);
+  border-radius: 8px;
+  padding: 10px 15px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #f9d423;
+  min-width: 60px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(249, 212, 35, 0.3);
+}
+
+.countdown-label {
+  margin-top: 5px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* 特別オファーバッジ - 新規追加 */
+.special-offer-badge {
+  position: absolute;
+  top: -30px; /* -20pxから-30pxに変更 */
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(45deg, #976f00, #f9d423);
+  color: #000;
+  font-weight: bold;
+  padding: 5px 15px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(249, 212, 35, 0.5);
+  z-index: 10;
+  white-space: nowrap;
+}
+
+/* 光の粒子効果 - 新規追加 */
+@keyframes light-particle {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-200px) translateX(100px);
+    opacity: 0;
+  }
+}
+
+.light-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8);
+  pointer-events: none;
+  opacity: 0;
+  animation: light-particle 8s ease-out infinite;
+}
+
+/* 3D回転効果 - 新規追加 */
+@keyframes rotate-3d {
+  0% {
+    transform: perspective(1000px) rotateY(0deg);
+  }
+  100% {
+    transform: perspective(1000px) rotateY(360deg);
+  }
+}
+
+.rotate-3d {
+  animation: rotate-3d 15s linear infinite;
+  transform-style: preserve-3d;
+}
+
+/* 神秘的な霧効果 - 新規追加 */
+.mystic-fog {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to top, rgba(15, 5, 36, 0.8), transparent);
+  z-index: 5;
+}
+
+.mystic-fog::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 30% 100%, rgba(138, 43, 226, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 70% 100%, rgba(249, 212, 35, 0.4) 0%, transparent 50%);
+  animation: fog-pulse 10s infinite alternate;
+}
+
+@keyframes fog-pulse {
+  0% {
+    opacity: 0.3;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0.7;
+    transform: translateY(-20px);
+  }
+}
+
+/* 特別なオファーテキスト効果 - 新規追加 */
+.special-offer-text {
+  font-weight: bold;
+  color: #f9d423;
+  text-shadow: 0 0 10px rgba(249, 212, 35, 0.5);
+  position: relative;
+  display: inline-block;
+}
+
+.special-offer-text::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #f9d423, transparent);
+  animation: offer-underline 2s infinite;
+}
+
+@keyframes offer-underline {
+  0%,
+  100% {
+    width: 0;
+    left: 50%;
+  }
+  50% {
+    width: 100%;
+    left: 0;
+  }
+}
+
+/* 高級感のある背景パターン - 新規追加 */
+.luxury-pattern {
+  position: relative;
+}
+
+.luxury-pattern::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 50%, rgba(249, 212, 35, 0.1) 0%, transparent 60%),
+    radial-gradient(circle at 20% 30%, rgba(138, 43, 226, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(138, 43, 226, 0.15) 0%, transparent 50%);
+  animation: luxury-pulse 10s infinite alternate;
+}
