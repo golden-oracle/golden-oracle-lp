@@ -1,6 +1,6 @@
 // app/page.tsx
-import { FreeConsultationForm } from "../components/FreeConsultationForm"
-
+// 修正後（OK）
+import { FreeConsultationForm } from "@/components/FreeConsultationForm"
 export default function Page() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-purple-950 via-purple-900 to-black px-4 py-8 sm:px-6 lg:px-8">

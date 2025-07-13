@@ -1,5 +1,6 @@
 import Image from "next/image"
-import { FreeConsultationForm } from "@/components/free-consultation-form"
+// 修正後（OK）
+import { FreeConsultationForm } from "@/components/FreeConsultationForm"
 import { Testimonials } from "@/components/testimonials"
 import { UserConcerns } from "@/components/user-concerns"
 import { Faq } from "@/components/faq"
