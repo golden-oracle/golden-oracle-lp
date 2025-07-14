@@ -247,11 +247,7 @@ export default function MobileLandingPage() {
 
                 <FreeConsultationForm isMobile={true} />
 
-                <div className="mt-4 text-center">
-                  <p className="text-xs text-purple-200 opacity-70">
-                    ※無料鑑定後、有料サービスへのご案内があります。ご利用は任意です。
-                  </p>
-                </div>
+
               </div>
             </div>
           </div>
